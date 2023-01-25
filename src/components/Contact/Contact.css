@@ -1,0 +1,11 @@
+@media screen and (max-width:800px) {
+   .Contact_content{
+     flex-direction: column-reverse;
+   }
+   .Contact_left{
+     width: 100%;
+   }       
+   .Contact_right{
+     width: 100%;
+   }
+}

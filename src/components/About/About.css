@@ -1,0 +1,14 @@
+@media screen and (max-width: 1000px) {
+  .left_about {
+    width: 100%;
+  }
+  .right_about {
+    width: 100%;
+  }
+  .right_about h1 {
+    font-size: 2rem;
+  }
+  .right_about p {
+    font-size: 15px;
+  }
+}

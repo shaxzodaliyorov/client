@@ -1,0 +1,60 @@
+.project_card_img {
+  position: relative;
+}
+
+#demo {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.project_card_img::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #00b96686;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  z-index: 97;
+}
+
+.project_card_img:hover::before {
+  width: 100%;
+}
+
+.project_card_img:hover #demo {
+  display: block;
+  z-index: 98;
+}
+
+@media screen and (max-width: 1000px) {
+  .project_card {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .project_card {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .project_card {
+    width: 100%;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,37 @@
+.admin_add{
+    max-width: 450px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    background: #3b3b3b;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.admin_add button{
+    width: 100%;
+    padding: 1rem 0;
+    background: #00b966;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.admin_blur{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: red;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.26);
+}
+
+@media screen and (max-width:750px) {
+    .admin_content{
+        padding: 4rem 2.5rem;
+    }
+}

@@ -1,0 +1,9 @@
+.active {
+  color: #00b966 !important;
+}
+
+@media screen and (max-width: 750px) {
+  .Profile_item {
+    padding: 8rem 2rem;
+  }
+}
