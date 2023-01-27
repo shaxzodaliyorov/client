@@ -33,7 +33,7 @@ const ProjectCard = ({ to = "/", img, title, id }) => {
       >
         <div className="project_card_img">
           <img
-            src={`https://shaxzod-portfolio.onrender.com/uploads/${img}`}
+            src={img}
             alt=""
             className="cursor-pointer w-[100%] h-[270px] object-cover"
           />

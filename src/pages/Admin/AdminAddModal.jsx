@@ -11,15 +11,20 @@ const AdminAddModal = ({ setAdd, GetProjects }) => {
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
   const [file, setFile] = useState("");
+
+  const handelerFile = async (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setFile(reader.result);
+    };
+  };
   const PostProject = async (e) => {
     e.preventDefault();
     if (title && link && file) {
-      const formData = new FormData();
-      formData.append("title", title);
-      formData.append("auth", user._id);
-      formData.append("img", file);
-      formData.append("link", link);
-      await Project.POST(user._id, formData);
+      const AllFormData = { title, auth: user._id, img: file, link };
+      await Project.POST(user._id, AllFormData);
       GetProjects();
       setAdd(false);
     }
@@ -31,7 +36,7 @@ const AdminAddModal = ({ setAdd, GetProjects }) => {
           Add Project
         </h1>
         <form action="" onSubmit={PostProject}>
-          <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+          <input type="file" onChange={handelerFile} />
           <InputCom
             placeholder={"Project Title"}
             value={title}

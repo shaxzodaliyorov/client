@@ -83,7 +83,7 @@ const Admin = () => {
                       </td>
                       <td scope="col" className="px-6 py-3">
                         <img
-                          src={`https://shaxzod-portfolio.onrender.com/uploads/${item.img}`}
+                          src={item.img}
                           alt=""
                           className="w-[40px] h-[40px] object-cover"
                         />

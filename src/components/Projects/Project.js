@@ -8,8 +8,11 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 const Project = () => {
   const [result, setResult] = useState([])
+  const [loading, setLoading] = useState(false)
   const getProject = async () => {
+    setLoading(true)
     const data = await ProjectApi.GET()
+    setLoading(false)
     setResult(data)
   }
 
@@ -26,7 +29,7 @@ const Project = () => {
     >
       <h1 variants={text} className='text-center text-[35px] text-[#fff] my-10' >Projects</h1>
       <div className='w-[100%] flex justify-around flex-wrap' id='projects' >
-        {!result.length ? <h1 className='text-center text-[#fff] text-[20px]' >No Projects</h1>:''}
+        {!result.length ? <h1 className='text-center text-[#fff] text-[20px]' >{loading ? "Loading..." : "No Projects"}</h1> : ''}
         {
           result.map((item, index) => {
             return <ProjectCard img={item.img} title={item.title} to={item.link} key={index} id={item._id} />
