@@ -6,7 +6,7 @@ import CommentsModal from "./CommentsModal";
 const ProjectCard = ({ to = "/", img, title, id }) => {
   const [CommitShow, setCommitShow] = useState(false);
   const [defaultId, setDefaultId] = useState("");
-
+  
   const textAnimate = {
     offscreen: { y: 100, opcity: 0 },
     onscreen: {

@@ -13,7 +13,7 @@ const AdminAddModal = ({ setAdd, GetProjects }) => {
   const [file, setFile] = useState("");
 
   const handelerFile = async (e) => {
-    const file = e.target.files[0];
+    const file = await e.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
