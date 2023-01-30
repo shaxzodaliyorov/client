@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const CommentsModal = ({ setCommitShow, defaultId }) => {
   const [post, setPost] = useState("");
   const [result, setResult] = useState([]);
-  const { user } = useSelector((state) => state.LoginSlice);
+  const { user,logined} = useSelector((state) => state.LoginSlice);
   const [loading, setLoading] = useState(false);
   const GetCommit = async () => {
     setLoading(true);
@@ -66,7 +66,7 @@ const CommentsModal = ({ setCommitShow, defaultId }) => {
             value={post}
             onChange={(e) => setPost(e.target.value)}
           />
-          <button className="mx-2" onClick={CommentPost}>
+          <button className="mx-2" onClick={CommentPost} disabled={!logined} >
             <AiOutlineSend size={"2rem"} color="#fff" />
           </button>
         </div>

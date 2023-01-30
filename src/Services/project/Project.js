@@ -9,7 +9,7 @@ const Project = {
         const { data } = await API.post(`/posts/add/${userid}`, formdata)
         return data
     },
-    async DELETE(userid, postid) {
+    async DELETE(postid, userid) {
         const { data } = await API.delete(`/posts/delete/${postid}/${userid}`)
         return data
     }

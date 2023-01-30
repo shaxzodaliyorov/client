@@ -12,23 +12,27 @@ const AdminAddModal = ({ setAdd, GetProjects }) => {
   const [link, setLink] = useState("");
   const [file, setFile] = useState("");
 
-  const handelerFile = async (e) => {
-    const file = await e.target.files[0];
+  const readerFileFunc = async (file) => {
     const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
+    reader.readAsDataURL(await file);
+    reader.onload = () => {
       setFile(reader.result);
     };
   };
+
+  const handelerFile = async (e) => {
+    readerFileFunc(e.target.files[0]);
+  };
   const PostProject = async (e) => {
     e.preventDefault();
-    if (title && link && file) {
+    if (title && link && file.length) {
       const AllFormData = { title, auth: user._id, img: file, link };
       await Project.POST(user._id, AllFormData);
       GetProjects();
       setAdd(false);
     }
   };
+
   return (
     <>
       <div className="admin_add">
@@ -36,7 +40,11 @@ const AdminAddModal = ({ setAdd, GetProjects }) => {
           Add Project
         </h1>
         <form action="" onSubmit={PostProject}>
-          <input type="file" onChange={handelerFile} />
+          <input
+            type="file"
+            onChange={handelerFile}
+            accept=".png, .jpg, .jpeg, .webp"
+          />
           <InputCom
             placeholder={"Project Title"}
             value={title}

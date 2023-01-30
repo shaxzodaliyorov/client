@@ -16,7 +16,7 @@ const Admin = () => {
     setprojects(data);
   };
   const DeletePosts = async (id) => {
-    await Project.DELETE(user._id, id);
+    await Project.DELETE(id, user._id);
     GetProjects();
   };
   useEffect(() => {
